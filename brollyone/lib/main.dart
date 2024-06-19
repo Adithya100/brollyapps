@@ -29,22 +29,32 @@ class _MyAppState extends State<MyApp> {
             ),
             TextField(
               controller: textFieldName,
-              onChanged: (value) => textFieldName.text,
+              onChanged: (value) {
+                setState(() {
+                  textFieldName.text = value;
+                });
+              },
              ),
             TextField(
               controller: textFieldEmail,
-              onChanged: (value) => textFieldEmail.text,
+              onChanged: (value) {
+                setState(() {
+                  textFieldEmail.text = value;
+                });
+              },
             ),
+            SizedBox(height: 20,),
+            Text("Name is : ${textFieldName.text}"),
+            SizedBox(height: 20,),
+            Text("Email is : ${textFieldEmail.text}"),
+            SizedBox(height: 20,),
             ElevatedButton(onPressed: (){
               setState(() {
                 colorText =! colorText;
-                textFieldName.text = textFieldName.text;
-                textFieldEmail.text = textFieldEmail.text;
+                // textFieldName.text = textFieldName.text;
+                // textFieldEmail.text = textFieldEmail.text;
               });
-            }, child: Text("Submit"),),
-
-            Text("Name is : ${textFieldName.text}"),
-            Text("Email is : ${textFieldEmail.text}"),
+            }, child: Text("Color Change"),),
           ],
         ),
       ),
